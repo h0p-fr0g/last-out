@@ -215,7 +215,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
 
 [node name="Player" type="CharacterBody2D" unique_id=125729257]
 script = SubResource("GDScript_g2els")
@@ -225,6 +225,6 @@ sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1792354904]
-shape = SubResource("RectangleShape2D_ur7pv")
+shape = SubResource("CapsuleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]

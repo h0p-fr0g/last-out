@@ -216,6 +216,7 @@ texture = ExtResource("7_jkv2x")
 texture_region_size = Vector2i(64, 64)
 use_texture_padding = false
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("10_dp3eg")
@@ -236,6 +237,7 @@ use_texture_padding = false
 
 [sub_resource type="TileSet" id="TileSet_yq6so"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
 sources/5 = SubResource("TileSetAtlasSource_tipki")
 sources/6 = SubResource("TileSetAtlasSource_85g3d")
 sources/7 = SubResource("TileSetAtlasSource_choun")
@@ -251,4 +253,5 @@ tile_set = SubResource("TileSet_pm3ni")
 [node name="Player" parent="." unique_id=125729257 instance=ExtResource("1_o5qli")]
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
+tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD///3/BgAAAAAAAAABAP//BgAAAAAAAAAAAAEABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_yq6so")
