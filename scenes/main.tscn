@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3nlrxkbd0ld8" path="res://art/tiles/walls/wallBottom.png" id="6_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://ghld1e3hrlrj" path="res://art/tiles/walls/wallCenter.png" id="7_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://dtt8akl8gjyaf" path="res://art/tiles/walls/WallSheet.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://btynf0gp330pj" path="res://art/tiles/walls/wallLeft.png" id="8_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://7e6bvyyaagfh" path="res://art/tiles/walls/wallRight.png" id="9_muem4"]
 [ext_resource type="Texture2D" uid="uid://c3fjl0xiiuipe" path="res://art/tiles/walls/wallTop.png" id="10_dp3eg"]
@@ -206,6 +207,14 @@ sources/1 = SubResource("TileSetAtlasSource_gqmmt")
 sources/2 = SubResource("TileSetAtlasSource_yc10j")
 sources/3 = SubResource("TileSetAtlasSource_jscy8")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
+texture = ExtResource("7_trceg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("6_a8y0u")
 texture_region_size = Vector2i(50, 35)
@@ -244,6 +253,7 @@ sources/6 = SubResource("TileSetAtlasSource_85g3d")
 sources/7 = SubResource("TileSetAtlasSource_choun")
 sources/8 = SubResource("TileSetAtlasSource_ya4ey")
 sources/9 = SubResource("TileSetAtlasSource_eb6dy")
+sources/0 = SubResource("TileSetAtlasSource_a8y0u")
 
 [node name="Node2D" type="Node2D" unique_id=487016442]
 
