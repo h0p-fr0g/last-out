@@ -208,32 +208,31 @@ sources/3 = SubResource("TileSetAtlasSource_jscy8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("6_a8y0u")
-margins = Vector2i(7, 14)
-texture_region_size = Vector2i(49, 35)
+texture_region_size = Vector2i(50, 35)
 use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
 texture = ExtResource("7_jkv2x")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(50, 50)
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("10_dp3eg")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(50, 37)
 use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("8_jbj1t")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(34, 50)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
 texture = ExtResource("9_muem4")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(37, 52)
 use_texture_padding = false
 0:0/0 = 0
 
