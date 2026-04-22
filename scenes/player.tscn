@@ -4,45 +4,148 @@
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
+# Dieses Skript gehört zu einem CharacterBody2D.
+# CharacterBody2D ist in Godot der passende Node-Typ für einen steuerbaren Spielercharakter
+# mit Bewegung und Kollision.
 
 @export var speed: float = 160.0
+# @export macht die Variable im Inspector sichtbar.
+# So kannst du die Bewegungsgeschwindigkeit später direkt im Editor ändern,
+# ohne den Code anfassen zu müssen.
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+# @onready bedeutet:
+# Diese Variable wird erst gesetzt, wenn der Node und seine Childs vollständig geladen sind.
+# $AnimatedSprite2D greift auf den Child-Node \"AnimatedSprite2D\" zu.
+# In \"anim\" speichern wir also eine Referenz auf den Sprite-Animations-Node.
+
 @onready var footsteps: AudioStreamPlayer2D = $Footsteps
+# Referenz auf den Audio-Node für die Schrittgeräusche.
+# Auch dieser Node wird als Child von Player erwartet und heißt hier \"Footsteps\".
 
 var last_direction: String = \"down\"
+# Merkt sich die letzte Bewegungsrichtung des Spielers.
+# Das ist wichtig, damit im Stand die richtige Idle-Animation abgespielt wird,
+# z. B. \"idle_down\", \"idle_left\", \"idle_right\" oder \"idle_up\".
 
 func _ready() -> void:
+	# _ready() wird genau einmal ausgeführt, wenn der Node vollständig geladen ist.
+
 	anim.frame_changed.connect(_on_anim_frame_changed)
-	
+	# Hier verbinden wir das Signal \"frame_changed\" des AnimatedSprite2D
+	# mit unserer eigenen Funktion \"_on_anim_frame_changed\".
+	# Dadurch wird unsere Funktion jedes Mal aufgerufen,
+	# wenn die aktuelle Animation auf den nächsten Frame wechselt.
+	# Das brauchen wir, um die Schrittgeräusche passend zur Laufanimation auszulösen.
+
+
 func _physics_process(_delta: float) -> void:
+	# _physics_process() wird in jedem Physik-Schritt aufgerufen.
+	# Bewegungs- und Kollisionslogik gehört in Godot normalerweise hier hinein.
+	# _delta ist die vergangene Zeit seit dem letzten Physik-Schritt.
+	# In diesem Skript brauchen wir _delta aktuell nicht direkt,
+	# deshalb beginnt der Name mit einem Unterstrich.
+
 	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
+	# Liest die Eingaben aus der Input Map aus.
+	# Die Funktion kombiniert vier Aktionen zu einem Richtungsvektor:
+	# - \"move_left\"
+	# - \"move_right\"
+	# - \"move_up\"
+	# - \"move_down\"
+	#
+	# Beispiele:
+	# Rechts = (1, 0)
+	# Links  = (-1, 0)
+	# Unten  = (0, 1)
+	# Oben   = (0, -1)
+	# Keine Eingabe = (0, 0)
+
 	velocity = input_dir * speed
+	# velocity ist eine eingebaute Variable von CharacterBody2D.
+	# Hier setzen wir die aktuelle Bewegungsgeschwindigkeit.
+	# input_dir gibt die Richtung an, speed die Stärke der Bewegung.
+	#
+	# Beispiel:
+	# input_dir = (1, 0)
+	# speed = 160
+	# => velocity = (160, 0)
+
 	move_and_slide()
+	# Bewegt den CharacterBody2D anhand der gesetzten velocity.
+	# Diese Funktion berücksichtigt Kollisionen und sorgt dafür,
+	# dass der Spieler an Wänden und Hindernissen hängen bleibt.
 
 	if input_dir == Vector2.ZERO:
+		# Wenn keine Taste gedrückt wird, ist der Eingabevektor (0, 0).
+
 		anim.play(\"idle_\" + last_direction)
+		# Dann spielen wir die passende Idle-Animation ab.
+		# Beispiel:
+		# Wenn last_direction = \"down\", wird \"idle_down\" abgespielt.
+		# Wenn last_direction = \"left\", wird \"idle_left\" abgespielt.
+
 		return
+		# return beendet die Funktion sofort.
+		# Dadurch wird der restliche Code für Laufanimationen übersprungen,
+		# solange der Spieler stillsteht.
 
 	if abs(input_dir.x) > abs(input_dir.y):
+		# abs(...) gibt den Betrag einer Zahl zurück.
+		# Hier prüfen wir, ob die horizontale Bewegung stärker ist als die vertikale.
+		# Also: Bewegt sich der Spieler eher links/rechts als oben/unten?
+
 		if input_dir.x > 0:
+			# Wenn x positiv ist, bewegt sich der Spieler nach rechts.
 			last_direction = \"right\"
 		else:
+			# Sonst bewegt sich der Spieler nach links.
 			last_direction = \"left\"
 	else:
+		# Wenn die vertikale Bewegung gleich stark oder stärker ist,
+		# entscheiden wir zwischen oben und unten.
+
 		if input_dir.y > 0:
+			# In Godot bedeutet positives y Bewegung nach unten.
 			last_direction = \"down\"
 		else:
+			# Negatives y bedeutet Bewegung nach oben.
 			last_direction = \"up\"
+
 	anim.play(\"walk_\" + last_direction)
-	
+	# Wenn Bewegung vorhanden ist, spielen wir die passende Laufanimation ab.
+	# Beispiel:
+	# \"walk_down\", \"walk_up\", \"walk_left\", \"walk_right\"
+
+
 func _on_anim_frame_changed() -> void:
+	# Diese Funktion wird durch das verbundene Signal aufgerufen,
+	# sobald sich der aktuelle Animationsframe ändert.
+
 	if not anim.animation.begins_with(\"walk_\"):
+		# anim.animation enthält den Namen der aktuell abgespielten Animation.
+		# begins_with(\"walk_\") prüft, ob der Name mit \"walk_\" anfängt.
+		#
+		# Das \"not\" kehrt die Bedingung um:
+		# Wenn also KEINE Laufanimation aktiv ist,
+		# wird die Funktion hier sofort beendet.
+
 		return
 
-	# Bei 4-Frame-Walkcycles sind Frame 0 und 2 meistens die \"Fuß setzt auf\"-Momente.
+	# Bei einem 4-Frame-Walkcycle sind Frame 0 und 2 oft die Momente,
+	# in denen jeweils ein Fuß den Boden berührt.
+	# Deshalb lösen wir genau dort das Schrittgeräusch aus.
 	if anim.frame == 0 or anim.frame == 2:
+		# anim.frame enthält die Nummer des aktuell abgespielten Frames.
+		# \"or\" bedeutet: Die Bedingung ist wahr, wenn einer der beiden Werte passt.
+
 		footsteps.stop()
+		# Stoppt den Sound zuerst.
+		# Das verhindert, dass sich der Schritt-Sound unkontrolliert überlagert,
+		# falls sehr schnell mehrere Trigger hintereinander ausgelöst werden.
+
 		footsteps.play()
+		# Spielt das Schrittgeräusch neu ab.
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]

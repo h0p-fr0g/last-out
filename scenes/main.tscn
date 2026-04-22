@@ -256,7 +256,7 @@ tile_set = SubResource("TileSet_pm3ni")
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=1998132957]
 stream = ExtResource("6_eb6dy")
-volume_db = -9.72
+volume_db = 7.354
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
 tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD///3/BgAAAAAAAAABAP//BgAAAAAAAAAAAAEABgAAAAAAAAA=")
@@ -264,5 +264,5 @@ tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
 stream = ExtResource("11_ya4ey")
-volume_db = -14.694
+volume_db = -7.652
 autoplay = true
