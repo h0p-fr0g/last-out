@@ -7,9 +7,13 @@ script/source = "extends CharacterBody2D
 
 @export var speed: float = 160.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var footsteps: AudioStreamPlayer2D = $Footsteps
 
 var last_direction: String = \"down\"
 
+func _ready() -> void:
+	anim.frame_changed.connect(_on_anim_frame_changed)
+	
 func _physics_process(_delta: float) -> void:
 	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
 	velocity = input_dir * speed
@@ -30,6 +34,15 @@ func _physics_process(_delta: float) -> void:
 		else:
 			last_direction = \"up\"
 	anim.play(\"walk_\" + last_direction)
+	
+func _on_anim_frame_changed() -> void:
+	if not anim.animation.begins_with(\"walk_\"):
+		return
+
+	# Bei 4-Frame-Walkcycles sind Frame 0 und 2 meistens die \"Fuß setzt auf\"-Momente.
+	if anim.frame == 0 or anim.frame == 2:
+		footsteps.stop()
+		footsteps.play()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]

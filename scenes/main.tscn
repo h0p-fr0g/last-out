@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w1onj1r8x1t5" path="res://art/tiles/ground/groundVarB.png" id="4_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://ceu2t1nq2x23u" path="res://art/tiles/ground/groundCrater.png" id="5_trceg"]
 [ext_resource type="Texture2D" uid="uid://3nlrxkbd0ld8" path="res://art/tiles/walls/wallBottom.png" id="6_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://ghld1e3hrlrj" path="res://art/tiles/walls/wallCenter.png" id="7_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://btynf0gp330pj" path="res://art/tiles/walls/wallLeft.png" id="8_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://7e6bvyyaagfh" path="res://art/tiles/walls/wallRight.png" id="9_muem4"]
@@ -253,10 +254,15 @@ tile_set = SubResource("TileSet_pm3ni")
 
 [node name="Player" parent="." unique_id=125729257 instance=ExtResource("1_o5qli")]
 
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=1998132957]
+stream = ExtResource("6_eb6dy")
+volume_db = -9.72
+
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
 tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD///3/BgAAAAAAAAABAP//BgAAAAAAAAAAAAEABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
 stream = ExtResource("11_ya4ey")
+volume_db = -14.694
 autoplay = true
