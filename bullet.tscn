@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://custntev5gj5n"]
+
+[ext_resource type="Texture2D" uid="uid://bex5gkpes4huj" path="res://art/tiles/bullets/bulletLaser.png" id="1_v7oki"]
+
+[sub_resource type="GDScript" id="GDScript_rtl8c"]
+resource_name = "Bullet"
+script/source = "extends Area2D
+
+# Geschwindigkeit der Kugel in Pixel pro Sekunde.
+@export var speed: float = 500.0
+
+# Lebensdauer der Kugel in Sekunden.
+@export var lifetime: float = 2.0
+
+# Bewegungsrichtung der Kugel.
+# Diese wird direkt nach dem Erzeugen vom Spieler gesetzt.
+var direction: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	# Kugel in Flugrichtung drehen, damit Sprite optisch korrekt ausgerichtet ist.
+	rotation = direction.angle()
+
+	# Nach einer festen Zeit automatisch löschen,
+	# damit alte Kugeln nicht ewig in der Szene bleiben.
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	# Bewegt die Kugel jedes Physik-Frame entlang ihrer Richtung.
+	global_position += direction * speed * delta
+
+func _on_body_entered(body: Node) -> void:
+	# Wird ausgelöst, wenn die Kugel einen PhysicsBody berührt,
+	# z. B. Wand, TileMap oder Gegner mit passender Kollision.
+	
+	# Optional: Falls der getroffene Körper eine Trefferfunktion hat,
+	# kann man hier Schaden auslösen.
+	if body.has_method(\"take_damage\"):
+		body.take_damage(1)
+
+	# Kugel nach Treffer entfernen.
+	queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	# Alternative Reaktion, falls du mit Area2D-Gegnern arbeitest.
+	if area.has_method(\"take_damage\"):
+		area.take_damage(1)
+
+	queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+
+[node name="Bullet" type="Area2D" unique_id=437225807]
+script = SubResource("GDScript_rtl8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1100318905]
+texture = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=137038091]
+shape = SubResource("CircleShape2D_rtl8c")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=868165947]
