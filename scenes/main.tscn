@@ -8,12 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://ceu2t1nq2x23u" path="res://art/tiles/ground/groundCrater.png" id="5_trceg"]
 [ext_resource type="Texture2D" uid="uid://3nlrxkbd0ld8" path="res://art/tiles/walls/wallBottom.png" id="6_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
+[ext_resource type="Script" uid="uid://d1prg0x4fkhq" path="res://scenes/ap_label_2.gd" id="7_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://ghld1e3hrlrj" path="res://art/tiles/walls/wallCenter.png" id="7_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://dtt8akl8gjyaf" path="res://art/tiles/walls/WallSheet.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://btynf0gp330pj" path="res://art/tiles/walls/wallLeft.png" id="8_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://7e6bvyyaagfh" path="res://art/tiles/walls/wallRight.png" id="9_muem4"]
 [ext_resource type="Texture2D" uid="uid://c3fjl0xiiuipe" path="res://art/tiles/walls/wallTop.png" id="10_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://bu3xuleaahyc1" path="res://art/audio/backgrnd/New Composition  2.mp3" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://dwieith6fiwqa" path="res://scenes/gun_safe.gd" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dippad84m1ptq" path="res://scenes/Numpad.tscn" id="17_dp3eg"]
+[ext_resource type="Script" uid="uid://biytwyimmrbu1" path="res://scenes/terminal.gd" id="17_muem4"]
+
+[sub_resource type="GDScript" id="GDScript_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ld40"]
 texture = ExtResource("2_choun")
@@ -361,13 +367,52 @@ sources/8 = SubResource("TileSetAtlasSource_ya4ey")
 sources/9 = SubResource("TileSetAtlasSource_eb6dy")
 sources/0 = SubResource("TileSetAtlasSource_a8y0u")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a8y0u"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(80, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(64, 128)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jbj1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
+size = Vector2(114, 48)
+
 [node name="Node2D" type="Node2D" unique_id=487016442]
+script = SubResource("GDScript_jkv2x")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1727949453]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_pm3ni")
 
-[node name="Player" parent="." unique_id=125729257 instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
+z_index = 100
+
+[node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
+visible = false
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 109.0
+offset_bottom = 7.0
+text = "[E] Interact"
+
+[node name="APLabel2" type="Label" parent="Player" unique_id=417000004]
+z_index = 100
+offset_left = -17.0
+offset_top = -48.0
+offset_right = 22.0
+offset_bottom = -25.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_jbj1t")
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=1998132957]
 stream = ExtResource("6_eb6dy")
@@ -381,3 +426,42 @@ tile_set = SubResource("TileSet_yq6so")
 stream = ExtResource("11_ya4ey")
 volume_db = -7.652
 autoplay = true
+
+[node name="GunSafe" type="Area2D" parent="." unique_id=713380110]
+script = ExtResource("15_jkv2x")
+numpad_scene = ExtResource("17_dp3eg")
+
+[node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
+modulate = Color(0.07450981, 0.07450981, 0.078431375, 1)
+position = Vector2(280, -208)
+texture = SubResource("PlaceholderTexture2D_a8y0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunSafe" unique_id=326427485]
+position = Vector2(280, -208)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GunSafe" unique_id=2123860168]
+position = Vector2(285.05676, -191.10863)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunSafe/StaticBody2D" unique_id=1343934401]
+position = Vector2(-5.0567627, -16.891373)
+shape = SubResource("RectangleShape2D_jkv2x")
+
+[node name="Terminal" type="Area2D" parent="." unique_id=301339115]
+script = ExtResource("17_muem4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(136, -200)
+scale = Vector2(112.25, 48.5)
+texture = SubResource("PlaceholderTexture2D_jbj1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal" unique_id=1888477382]
+position = Vector2(136, -200)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terminal" unique_id=1187184879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/StaticBody2D" unique_id=204778271]
+position = Vector2(136, -200)
+shape = SubResource("RectangleShape2D_dp3eg")
