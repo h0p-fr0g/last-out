@@ -1,37 +1,19 @@
-[gd_scene format=4 uid="uid://d2ajeibjfnuxw"]
+[gd_scene format=3 uid="uid://d2ajeibjfnuxw"]
 
 [ext_resource type="PackedScene" uid="uid://mtrg2m78vm1j" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b3yltgsng82yh" path="res://art/tiles/ground/groundBase.png" id="2_choun"]
-[ext_resource type="Texture2D" uid="uid://bedhrwc14mf2j" path="res://art/tiles/ground/tile_floor_vent.png" id="3_fv21b"]
 [ext_resource type="Texture2D" uid="uid://b81rdlqevnvsw" path="res://art/tiles/ground/groundVarA.png" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://w1onj1r8x1t5" path="res://art/tiles/ground/groundVarB.png" id="4_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://exeu7buwjhi8" path="res://art/tiles/ground/groundSheet.png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://ceu2t1nq2x23u" path="res://art/tiles/ground/groundCrater.png" id="5_trceg"]
 [ext_resource type="Texture2D" uid="uid://3nlrxkbd0ld8" path="res://art/tiles/walls/wallBottom.png" id="6_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://cvovhoxj0wjvr" path="res://art/tiles/ground/tile_floor_corridor.png" id="6_jscy8"]
-[ext_resource type="Script" uid="uid://d1prg0x4fkhq" path="res://scenes/ap_label_2.gd" id="7_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://ghld1e3hrlrj" path="res://art/tiles/walls/wallCenter.png" id="7_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://ddbbahbkv35ji" path="res://art/tiles/ground/tile_floor_maintenance.png" id="7_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://dtt8akl8gjyaf" path="res://art/tiles/walls/WallSheet.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://btynf0gp330pj" path="res://art/tiles/walls/wallLeft.png" id="8_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://bhi8ewrf1m6y3" path="res://art/tiles/ground/tile_floor_main_corridor.png" id="8_y6deb"]
 [ext_resource type="Texture2D" uid="uid://7e6bvyyaagfh" path="res://art/tiles/walls/wallRight.png" id="9_muem4"]
-[ext_resource type="Texture2D" uid="uid://crjy7b1ke1t6u" path="res://art/tiles/ground/tile_floor_storage.png" id="9_og1vs"]
 [ext_resource type="Texture2D" uid="uid://c3fjl0xiiuipe" path="res://art/tiles/walls/wallTop.png" id="10_dp3eg"]
-[ext_resource type="Texture2D" uid="uid://bcy26edsw36qa" path="res://art/tiles/ground/tile_floor_hazard_marking.png" id="11_tel4y"]
 [ext_resource type="AudioStream" uid="uid://bu3xuleaahyc1" path="res://art/audio/backgrnd/New Composition  2.mp3" id="11_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://bo6pyvkhvxmsu" path="res://art/tiles/walls/tile_wall_vertical.png" id="14_og1vs"]
-[ext_resource type="Texture2D" uid="uid://crfjkiovfejsu" path="res://art/tiles/walls/tile_wall_inner_corner.png" id="15_2f3dj"]
-[ext_resource type="Texture2D" uid="uid://clivjfsbyjreg" path="res://art/tiles/walls/tile_door_frame.png" id="15_2wyq8"]
-[ext_resource type="Script" uid="uid://dwieith6fiwqa" path="res://scenes/gun_safe.gd" id="15_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://dsmrhunutkmci" path="res://art/tiles/worldObjects/landingCapsule.png" id="15_vxglm"]
-[ext_resource type="Texture2D" uid="uid://b1thawf1dv2ik" path="res://art/tiles/walls/tile_wall_horizontal.png" id="16_vxglm"]
-[ext_resource type="Texture2D" uid="uid://bea8iovoyoxvq" path="res://art/tiles/walls/tile_wall_outer_corner.png" id="16_yq6so"]
-[ext_resource type="PackedScene" uid="uid://dippad84m1ptq" path="res://scenes/Numpad.tscn" id="17_dp3eg"]
-[ext_resource type="Script" uid="uid://biytwyimmrbu1" path="res://scenes/terminal.gd" id="17_muem4"]
-
-[sub_resource type="GDScript" id="GDScript_jkv2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ld40"]
 texture = ExtResource("2_choun")
@@ -74,11 +56,6 @@ use_texture_padding = false
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmb1v"]
-texture = ExtResource("3_fv21b")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc10j"]
 texture = ExtResource("4_eb6dy")
@@ -327,45 +304,14 @@ texture_region_size = Vector2i(512, 512)
 8:9/0 = 0
 9:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wyq8"]
-texture = ExtResource("6_jscy8")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxglm"]
-texture = ExtResource("7_pm3ni")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f3dj"]
-texture = ExtResource("8_y6deb")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq6so"]
-texture = ExtResource("9_og1vs")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuf3a"]
-texture = ExtResource("11_tel4y")
-texture_region_size = Vector2i(64, 63)
-0:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_pm3ni"]
 tile_layout = 3
-tile_size = Vector2i(64, 64)
+tile_size = Vector2i(512, 512)
 sources/0 = SubResource("TileSetAtlasSource_0ld40")
 sources/1 = SubResource("TileSetAtlasSource_gqmmt")
 sources/2 = SubResource("TileSetAtlasSource_yc10j")
 sources/3 = SubResource("TileSetAtlasSource_jscy8")
 sources/4 = SubResource("TileSetAtlasSource_jkv2x")
-sources/5 = SubResource("TileSetAtlasSource_2wyq8")
-sources/6 = SubResource("TileSetAtlasSource_vxglm")
-sources/7 = SubResource("TileSetAtlasSource_2f3dj")
-sources/8 = SubResource("TileSetAtlasSource_yq6so")
-sources/9 = SubResource("TileSetAtlasSource_fuf3a")
-sources/10 = SubResource("TileSetAtlasSource_kmb1v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
 texture = ExtResource("7_trceg")
@@ -374,42 +320,6 @@ texture_region_size = Vector2i(128, 128)
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fv21b"]
-texture = ExtResource("14_og1vs")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgi5k"]
-texture = ExtResource("15_2f3dj")
-texture_region_size = Vector2i(64, 74)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8jky"]
-texture = ExtResource("16_yq6so")
-texture_region_size = Vector2i(64, 67)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q0nq"]
-texture = ExtResource("15_vxglm")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tel4y"]
-texture = ExtResource("15_2wyq8")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkpxi"]
-texture = ExtResource("16_vxglm")
-texture_region_size = Vector2i(78, 64)
-0:0/0 = 0
-1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("6_a8y0u")
@@ -450,113 +360,24 @@ sources/7 = SubResource("TileSetAtlasSource_choun")
 sources/8 = SubResource("TileSetAtlasSource_ya4ey")
 sources/9 = SubResource("TileSetAtlasSource_eb6dy")
 sources/0 = SubResource("TileSetAtlasSource_a8y0u")
-sources/1 = SubResource("TileSetAtlasSource_fv21b")
-sources/3 = SubResource("TileSetAtlasSource_tel4y")
-sources/4 = SubResource("TileSetAtlasSource_qkpxi")
-sources/2 = SubResource("TileSetAtlasSource_5q0nq")
-sources/12 = SubResource("TileSetAtlasSource_dgi5k")
-sources/13 = SubResource("TileSetAtlasSource_j8jky")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a8y0u"]
-size = Vector2(64, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(80, 144)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
-size = Vector2(64, 128)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jbj1t"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
-size = Vector2(128, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
-size = Vector2(114, 48)
 
 [node name="Node2D" type="Node2D" unique_id=487016442]
-script = SubResource("GDScript_jkv2x")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1727949453]
-tile_map_data = PackedByteArray("AAD7////BQAAAAAAAAD8////BQAAAAAAAAD7/wAABQAAAAAAAAD8/wAABQAAAAAAAAD7/wEABQAAAAAAAAD7/wIABQAAAAAAAAD5/wIACgAAAAAAAAD5/wMABQAAAAAAAAD5/wQABQAAAAAAAAD6/wQABQAAAAAAAAD7/wQABQAAAAAAAAD8/wQABQAAAAAAAAD9/wQABQAAAAAAAAD9/wMABQAAAAAAAAD9/wIABQAAAAAAAAD8/wEABQAAAAAAAAD6/wIABQAAAAAAAAD6/wMABQAAAAAAAAD7/wMABQAAAAAAAAD8/wMABQAAAAAAAAD8/wIABQAAAAAAAAD+/wIACgAAAAAAAAD+/wMABQAAAAAAAAD+/wQABQAAAAAAAAD7//7/BQAAAAAAAAD8//7/BQAAAAAAAAD4/wEABQAAAAAAAAD6/wEABQAAAAAAAAD//wEABQAAAAAAAAD//wYABQAAAAAAAAD4/wYABQAAAAAAAAD5/wUACgAAAAAAAAD6/wUABQAAAAAAAAD7/wUABQAAAAAAAAD8/wUABQAAAAAAAAD9/wUABQAAAAAAAAD+/wUACgAAAAAAAAD//wQABgAAAAAAAAAAAAQABgAAAAAAAAABAAQABgAAAAAAAAACAAQABgAAAAAAAAAGAAUABgAAAAAAAAAGAAQABgAAAAAAAAAGAAMABgAAAAAAAAACAAUABgAAAAAAAAADAAUABgAAAAAAAAAEAAUABgAAAAAAAAAFAAUABgAAAAAAAAAFAAQABgAAAAAAAAAFAAMABgAAAAAAAAACAAMABgAAAAAAAAADAAQABgAAAAAAAAADAAMABgAAAAAAAAAEAAMABgAAAAAAAAAEAAQABgAAAAAAAAD9//7/BQAAAAAAAAD6//7/BQAAAAAAAAACAAIACgAAAAAAAAADAAIABgAAAAAAAAAEAAIABgAAAAAAAAAFAAIABgAAAAAAAAAGAAIABgAAAAAAAAAHAAUABgAAAAAAAAAIAAUABgAAAAAAAAAJAAUABgAAAAAAAAAJAAQABgAAAAAAAAAJAAMABgAAAAAAAAAJAAIABgAAAAAAAAAIAAIABgAAAAAAAAAHAAIABgAAAAAAAAAHAAMABgAAAAAAAAAHAAQABgAAAAAAAAAIAAQABgAAAAAAAAAIAAMABgAAAAAAAAAKAAIABgAAAAAAAAALAAIABgAAAAAAAAAMAAIACgAAAAAAAAAMAAMABgAAAAAAAAAMAAQABgAAAAAAAAAMAAUABgAAAAAAAAALAAUABgAAAAAAAAAKAAUABgAAAAAAAAAKAAQABgAAAAAAAAAKAAMABgAAAAAAAAALAAMABgAAAAAAAAALAAQABgAAAAAAAAAKAAEABgAAAAAAAAAKAAAABgAAAAAAAAAFAAEABgAAAAAAAAAFAAAABgAAAAAAAAACAAYACgAAAAAAAAADAAYABgAAAAAAAAAEAAYABgAAAAAAAAAFAAYABgAAAAAAAAAGAAYABgAAAAAAAAAHAAYABgAAAAAAAAAIAAYABgAAAAAAAAAJAAYABgAAAAAAAAAKAAYABgAAAAAAAAALAAYABgAAAAAAAAAMAAYACgAAAAAAAAABAAcABgAAAAAAAAABAAEABgAAAAAAAAAKAP//CAAAAAAAAAAKAP7/CAAAAAAAAAAJAP7/CAAAAAAAAAAIAP7/CAAAAAAAAAAHAP7/CAAAAAAAAAAHAP3/CAAAAAAAAAAHAPz/CAAAAAAAAAAIAPz/CAAAAAAAAAAJAPz/CAAAAAAAAAAKAPz/CAAAAAAAAAALAPz/CAAAAAAAAAAMAPz/CAAAAAAAAAAMAP3/CAAAAAAAAAAMAP7/CAAAAAAAAAALAP7/CAAAAAAAAAALAP3/CAAAAAAAAAAKAP3/CAAAAAAAAAAJAP3/CAAAAAAAAAAIAP3/CAAAAAAAAAANAPz/CAAAAAAAAAANAP3/CAAAAAAAAAANAP7/CAAAAAAAAAAHAPv/CAAAAAAAAAAIAPv/CAAAAAAAAAAJAPv/CAAAAAAAAAAKAPv/CAAAAAAAAAALAPv/CAAAAAAAAAAMAPv/CAAAAAAAAAANAPv/CAAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_pm3ni")
 
-[node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
-z_index = 100
-position = Vector2(-255, -128)
-
-[node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
-visible = false
-offset_left = 24.0
-offset_top = -16.0
-offset_right = 109.0
-offset_bottom = 7.0
-text = "[E] Interact"
-
-[node name="APLabel2" type="Label" parent="Player" unique_id=417000004]
-z_index = 100
-offset_left = -17.0
-offset_top = -48.0
-offset_right = 22.0
-offset_bottom = -25.0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_jbj1t")
-metadata/_edit_use_anchors_ = true
+[node name="Player" parent="." unique_id=125729257 instance=ExtResource("1_o5qli")]
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=1998132957]
 stream = ExtResource("6_eb6dy")
 volume_db = 7.354
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
-tile_map_data = PackedByteArray("AAD7//3/AgAAAAAAAAD7//7/AgAAAAEAAAD8//3/AgABAAAAAAD8//7/AgABAAEAAAD9//7/DQAAAAAAAAD6//7/DQAAAAAAAGD9////BAAAAAAAAED9/wAABAABAAAAAED4/wMABAABAAAAAFD6////BAABAAAAAHD6/wAABAAAAAAAAHD4/wIABAAAAAAAAFD9/wEABAAAAAAAAAD+/wEABAABAAAAAAD5/wEABAAAAAAAAAD6/wEABAABAAAAAAD//wEADQAAAAAAAAD4/wEADQAAAAAAAGD//wIABAAAAAAAAFD//wMABAABAAAAAFD//wUABAABAAAAAFD4/wUABAABAAAAAFD4/wQABAAAAAAAAFD4/wYADQAAAAAAADD//wYADQAAAAAAAFD5/wYABAAAAAAAAAD6/wYABAABAAAAAAD7/wYABAAAAAAAAAD8/wYABAABAAAAAAD9/wYABAAAAAAAAAD+/wYABAABAAAAAAD//wQAAwAAAAAAAHABAAEADQAAAAAAAGABAAMABAAAAAAAAGABAAIABAABAAAAAGABAAYABAAAAAAAAGABAAUABAABAAAAAGAAAAUABAABAAAAADAAAAMABAABAAAAAAABAAcADQAAAAAAADACAAcABAABAAAAADADAAcABAAAAAAAADAEAAcABAABAAAAADAFAAcABAAAAAAAADAGAAcABAABAAAAADAHAAcABAAAAAAAADAIAAcABAABAAAAADAJAAcABAAAAAAAADAKAAcABAABAAAAADALAAcABAAAAAAAADAMAAcABAABAAAAADANAAcABAAAAAAAADADAAEABAABAAAAAAACAAEABAAAAAAAAAAEAAEABAAAAAAAAGAEAAAABAABAAAAAGAGAAAABAAAAAAAAFAGAAEABAABAAAAAFALAAAABAAAAAAAAFALAAEABAABAAAAAFAJAAEABAAAAAAAAGAJAAAABAABAAAAAGAIAAEABAABAAAAAAAHAAEABAAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0, 255, 255, 253, 255, 6, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
 stream = ExtResource("11_ya4ey")
 volume_db = -7.652
 autoplay = true
-
-[node name="GunSafe" type="Area2D" parent="." unique_id=713380110]
-position = Vector2(-162, 619)
-rotation = -1.5707964
-script = ExtResource("15_jkv2x")
-numpad_scene = ExtResource("17_dp3eg")
-
-[node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
-modulate = Color(0.07450981, 0.07450981, 0.078431375, 1)
-position = Vector2(280, -208)
-texture = SubResource("PlaceholderTexture2D_a8y0u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GunSafe" unique_id=326427485]
-position = Vector2(280, -208)
-shape = SubResource("RectangleShape2D_a8y0u")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="GunSafe" unique_id=2123860168]
-position = Vector2(285.05676, -191.10863)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GunSafe/StaticBody2D" unique_id=1343934401]
-position = Vector2(-5.0567627, -16.891373)
-shape = SubResource("RectangleShape2D_jkv2x")
-
-[node name="Terminal" type="Area2D" parent="." unique_id=301339115]
-position = Vector2(22, 92)
-script = ExtResource("17_muem4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
-position = Vector2(136, -200)
-scale = Vector2(112.25, 48.5)
-texture = SubResource("PlaceholderTexture2D_jbj1t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal" unique_id=1888477382]
-position = Vector2(136, -200)
-shape = SubResource("RectangleShape2D_muem4")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Terminal" unique_id=1187184879]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/StaticBody2D" unique_id=204778271]
-position = Vector2(136, -200)
-shape = SubResource("RectangleShape2D_dp3eg")
