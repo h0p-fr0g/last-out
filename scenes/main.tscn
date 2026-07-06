@@ -1151,12 +1151,14 @@ size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
+visible = false
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
 
 [node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
 unique_name_in_owner = true
+visible = false
 z_index = 101
 anchors_preset = 15
 anchor_right = 1.0
